@@ -1,16 +1,64 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ini penting buat responsif -->
   <title>Verifikasi Sertifikat</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; padding: 50px; }
-    .result { background: white; padding: 20px; border-radius: 8px; display: inline-block; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    .error { color: red; font-weight: bold; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .result {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 480px;
+      text-align: left;
+    }
+
+    .result b {
+      display: inline-block;
+      width: 120px;
+    }
+
+    .result a {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #007BFF;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+
+    @media (max-width: 480px) {
+      .result {
+        padding: 16px;
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div id="hasil" class="result">🔄 Sedang memuat data...</div>
+  <div class="container">
+    <div id="hasil" class="result">🔄 Sedang memuat data...</div>
+  </div>
 
   <script>
     const kode = new URLSearchParams(window.location.search).get('kode');
@@ -27,13 +75,16 @@
 
           const cocok = data.find(r => r[0].trim() === kode);
           if (cocok) {
+            const link = cocok[5]?.trim();
+            const linkHTML = link && link.startsWith('http') ? `<a href="${link}" target="_blank">🔗 Lihat Sertifikat</a>` : '';
+
             hasil.innerHTML = `
-              ✅ Sertifikat ditemukan!<br><br><br>
+              ✅ Sertifikat ditemukan!<br><br>
               <b>Nama:</b> ${cocok[1]}<br><br>
               <b>Kode:</b> ${cocok[2]}<br><br>
               <b>Pelatihan:</b> ${cocok[3]}<br><br>
               <b>Tanggal:</b> ${cocok[4]}<br><br>
-              <a href="${cocok[5]}" target="_blank">🔗 Lihat Sertifikat</a>
+              ${linkHTML}
             `;
           } else {
             hasil.innerHTML = '❌ <span class="error">Sertifikat tidak ditemukan.</span><br>Periksa kode Anda.';
