@@ -86,21 +86,90 @@
       border-radius: 8px;
     }
 
-    .url-link {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 1rem;
+    /* Footer */
+    .footer {
+      background-color: #1d3557;
+      color: white;
+      padding: 40px 20px;
+      margin-top: 60px;
     }
 
-    .url-link a {
-      color: #007bff;
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 250px;
+      margin: 10px;
+    }
+
+    .footer-column h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .footer-column p,
+    .footer-column a {
+      color: #e0e0e0;
+      font-size: 0.95em;
       text-decoration: none;
     }
 
-    .url-link a:hover {
+    .footer-column a:hover {
       text-decoration: underline;
     }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons i {
+      font-size: 20px;
+      margin-right: 10px;
+      color: white;
+    }
+
+    .email-input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1em;
+      margin-bottom: 10px;
+    }
+
+    .submit-btn {
+      background-color: #457b9d;
+      color: white;
+      padding: 12px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.85em;
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
   </style>
+
+  <!-- Font Awesome for Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -108,7 +177,7 @@
     <!-- Verifikasi Sertifikat -->
     <div id="hasil" class="result">🔄 Sedang memuat data...</div>
 
-    <!-- Pindahan: Hubungi Kami -->
+    <!-- Call to Action -->
     <div class="call-section">
       <h2>Mau Request Training atau Sertifikasi? Silahkan hubungi kami</h2>
       <a class="btn-hubungi" href="https://safecomitrasolution.com/kontak" target="_blank">
@@ -116,30 +185,56 @@
       </a>
     </div>
 
-    <div class="url-link">
-      🔗 <a href="https://safecomitrasolution.com/kontak" target="_blank">https://safecomitrasolution.com/kontak</a>
-    </div>
-
     <!-- Lokasi Kami -->
     <div class="lokasi">
       <h2>Lokasi Kami</h2>
       <p>
-        Kunjungi PT Safeco untuk pelatihan perpajakan, akuntansi, dan keselamatan kerja. Kami siap membantu Anda mencapai tujuan belajar.
+        Kunjungi PT Safeco di Perumahan Cendana Spark, Lippo Cikarang untuk pelatihan perpajakan, akuntansi, dan keselamatan kerja.
       </p>
       <p><strong>Alamat:</strong><br>
-        Jl. Cendana Spark Boulevard No. 33,<br>
+        Jl. Cendana Spark Boulevard No. 33,<br>
         Cikarang Selatan, Kab. Bekasi, Jawa Barat
       </p>
       <p><strong>Jam Operasional:</strong><br>
         Senin - Minggu : 08.00 - 20.00
       </p>
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31731.435938504304!2d107.08673101241265!3d-6.307021301948055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699b92aa0d3f3d%3A0x58ff8f1d019d3ab9!2sJl.%20Cendana%20Spark%20Boulevard%20No.33%2C%20Cibatu%2C%20Cikarang%20Selatan%2C%20Bekasi%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1719600000000!5m2!1sid!2sid"
+        src="https://www.google.com/maps?q=-6.3132294,107.1428002&hl=id&z=16&output=embed"
         allowfullscreen=""
         loading="lazy">
       </iframe>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Pelatihan</h3>
+        <p>Kami menyediakan pelatihan dan sertifikasi berkualitas.</p>
+        <div class="social-icons">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-tiktok"></i>
+          <i class="fab fa-x-twitter"></i>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>SERTIFIKASI</h3>
+        <p>0812-2000-9203</p>
+        <p><a href="mailto:admin@safecomitrasolution.com">admin@safecomitrasolution.com</a></p>
+      </div>
+      <div class="footer-column">
+        <h3>KONSULTASI</h3>
+        <p>Masukkan alamat email Anda</p>
+        <input type="email" placeholder="Contoh: nama@gmail.com" class="email-input" />
+        <button class="submit-btn">Kirim Permintaan Pelatihan</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025. All rights reserved.
+    </div>
+  </footer>
 
   <script>
     const kode = new URLSearchParams(window.location.search).get('kode');
