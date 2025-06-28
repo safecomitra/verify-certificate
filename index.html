@@ -1,45 +1,29 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ini penting buat responsif -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Verifikasi Sertifikat</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
+      background: #f2f2f2;
+      color: #333;
     }
 
     .container {
+      max-width: 800px;
+      margin: auto;
       padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
     }
 
     .result {
       background: white;
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 480px;
-      text-align: left;
-    }
-
-    .result b {
-      display: inline-block;
-      width: 120px;
-    }
-
-    .result a {
-      display: inline-block;
-      margin-top: 10px;
-      text-decoration: none;
-      color: #007BFF;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     .error {
@@ -47,17 +31,111 @@
       font-weight: bold;
     }
 
-    @media (max-width: 480px) {
-      .result {
-        padding: 16px;
-        font-size: 16px;
-      }
+    .lokasi {
+      background: #fff;
+      padding: 30px;
+      margin-top: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .lokasi h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .lokasi p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    .call-section {
+      background: #1e1e1e;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 40px;
+      border-radius: 10px;
+    }
+
+    .call-section h2 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    .btn-hubungi {
+      background-color: #28a745;
+      color: white;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn-hubungi:hover {
+      background-color: #218838;
+    }
+
+    .url-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1rem;
+    }
+
+    .url-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .url-link a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+
   <div class="container">
     <div id="hasil" class="result">🔄 Sedang memuat data...</div>
+
+    <div class="lokasi">
+      <h2>Lokasi Kami</h2>
+      <p>
+        Kunjungi PT Safeco untuk pelatihan perpajakan, akuntansi, dan keselamatan kerja. Kami siap membantu Anda mencapai tujuan belajar.
+      </p>
+      <p><strong>Alamat:</strong><br>
+        Jl. Cendana Spark Boulevard No. 33,<br>
+        Cikarang Selatan, Kab. Bekasi, Jawa Barat
+      </p>
+      <p><strong>Jam Operasional:</strong><br>
+        Senin - Minggu : 08.00 - 20.00
+      </p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31731.435938504304!2d107.08673101241265!3d-6.307021301948055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e699b92aa0d3f3d%3A0x58ff8f1d019d3ab9!2sJl.%20Cendana%20Spark%20Boulevard%20No.33%2C%20Cibatu%2C%20Cikarang%20Selatan%2C%20Bekasi%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1719600000000!5m2!1sid!2sid"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <div class="call-section">
+      <h2>Mau Request Training atau Sertifikasi? Silahkan hubungi kami</h2>
+      <a class="btn-hubungi" href="https://safecomitrasolution.com/kontak" target="_blank">
+        Hubungi Kami
+      </a>
+    </div>
+
+    <div class="url-link">
+      🔗 <a href="https://safecomitrasolution.com/kontak" target="_blank">https://safecomitrasolution.com/kontak</a>
+    </div>
   </div>
 
   <script>
@@ -70,21 +148,18 @@
       fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vToiXzfx8AI4KHnuKNSSvMGqa5yzLPy2EYo27qkiePBRgSmHS-L4KXpfj0coMt6U5Jtz7X8sOvJhcSj/pub?output=csv')
         .then(response => response.text())
         .then(csv => {
-          const rows = csv.split('\n').slice(1); // buang header
+          const rows = csv.split('\n').slice(1);
           const data = rows.map(row => row.split(','));
 
           const cocok = data.find(r => r[0].trim() === kode);
           if (cocok) {
-            const link = cocok[5]?.trim();
-            const linkHTML = link && link.startsWith('http') ? `<a href="${link}" target="_blank">🔗 Lihat Sertifikat</a>` : '';
-
             hasil.innerHTML = `
-              ✅ Sertifikat ditemukan!<br><br>
+              ✅ Sertifikat ditemukan!<br><br><br>
               <b>Nama:</b> ${cocok[1]}<br><br>
               <b>Kode:</b> ${cocok[2]}<br><br>
               <b>Pelatihan:</b> ${cocok[3]}<br><br>
               <b>Tanggal:</b> ${cocok[4]}<br><br>
-              ${linkHTML}
+              <a href="${cocok[5]}" target="_blank">🔗 Lihat Sertifikat</a>
             `;
           } else {
             hasil.innerHTML = '❌ <span class="error">Sertifikat tidak ditemukan.</span><br>Periksa kode Anda.';
@@ -96,5 +171,6 @@
         });
     }
   </script>
+
 </body>
 </html>
