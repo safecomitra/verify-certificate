@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -11,42 +10,6 @@
       margin: 0;
       background: #f2f2f2;
       color: #333;
-    }
-
-    .main-header {
-      background-color: #ffffff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-
-    .nav-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-
-    .logo {
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #1d3557;
-    }
-
-    .navbar a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #1d3557;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .navbar a:hover {
-      color: #007bff;
     }
 
     .container {
@@ -123,6 +86,7 @@
       border-radius: 8px;
     }
 
+    /* Footer */
     .footer {
       background-color: #1d3557;
       color: white;
@@ -203,98 +167,108 @@
       }
     }
   </style>
+
+  <!-- Font Awesome for Icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-<header class="main-header">
-  <div class="nav-container">
-    <div class="logo">PT Safeco</div>
-    <nav class="navbar">
-      <a href="https://safecomitrasolution.com">Beranda</a>
-      <a href="https://safecomitrasolution.com/layanan">Layanan</a>
-      <a href="https://safecomitrasolution.com/pelatihan">Pelatihan</a>
-      <a href="https://safecomitrasolution.com/kontak">Kontak</a>
-    </nav>
+  <div class="container">
+    <!-- Verifikasi Sertifikat -->
+    <div id="hasil" class="result">🔄 Sedang memuat data...</div>
+
+    <!-- Call to Action -->
+    <div class="call-section">
+      <h2>Mau Request Training atau Sertifikasi? Silahkan hubungi kami</h2>
+      <a class="btn-hubungi" href="https://safecomitrasolution.com/kontak" target="_blank">
+        Hubungi Kami
+      </a>
+    </div>
+
+    <!-- Lokasi Kami -->
+    <div class="lokasi">
+      <h2>Lokasi Kami</h2>
+      <p>
+        Kunjungi PT Safeco di Perumahan Cendana Spark, Lippo Cikarang untuk pelatihan perpajakan, akuntansi, dan keselamatan kerja.
+      </p>
+      <p><strong>Alamat:</strong><br>
+        Jl. Cendana Spark Boulevard No. 33,<br>
+        Cikarang Selatan, Kab. Bekasi, Jawa Barat
+      </p>
+      <p><strong>Jam Operasional:</strong><br>
+        Senin - Minggu : 08.00 - 20.00
+      </p>
+      <iframe
+        src="https://www.google.com/maps?q=-6.3132294,107.1428002&hl=id&z=16&output=embed"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
   </div>
-</header>
 
-<div class="container">
-  <div id="hasil" class="result">🔄 Sedang memuat data...</div>
-
-  <div class="call-section">
-    <h2>Mau Request Training atau Sertifikasi? Silahkan hubungi kami</h2>
-    <a class="btn-hubungi" href="https://safecomitrasolution.com/kontak" target="_blank">Hubungi Kami</a>
-  </div>
-
-  <div class="lokasi">
-    <h2>Lokasi Kami</h2>
-    <p>Kunjungi PT Safeco di Perumahan Cendana Spark, Lippo Cikarang untuk pelatihan perpajakan, akuntansi, dan keselamatan kerja.</p>
-    <p><strong>Alamat:</strong><br>Jl. Cendana Spark Boulevard No. 33,<br>Cikarang Selatan, Kab. Bekasi, Jawa Barat</p>
-    <p><strong>Jam Operasional:</strong><br>Senin - Minggu : 08.00 - 20.00</p>
-    <iframe src="https://www.google.com/maps?q=-6.3132294,107.1428002&hl=id&z=16&output=embed" allowfullscreen="" loading="lazy"></iframe>
-  </div>
-</div>
-
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-column">
-      <h3>Pelatihan</h3>
-      <p>Kami menyediakan pelatihan dan sertifikasi berkualitas.</p>
-      <div class="social-icons">
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-tiktok"></i>
-        <i class="fab fa-x-twitter"></i>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Pelatihan</h3>
+        <p>Kami menyediakan pelatihan dan sertifikasi berkualitas.</p>
+        <div class="social-icons">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-tiktok"></i>
+          <i class="fab fa-x-twitter"></i>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>SERTIFIKASI</h3>
+        <p>0812-2000-9203</p>
+        <p><a href="mailto:admin@safecomitrasolution.com">admin@safecomitrasolution.com</a></p>
+      </div>
+      <div class="footer-column">
+        <h3>KONSULTASI</h3>
+        <p>Masukkan alamat email Anda</p>
+        <input type="email" placeholder="Contoh: nama@gmail.com" class="email-input" />
+        <button class="submit-btn">Kirim Permintaan Pelatihan</button>
       </div>
     </div>
-    <div class="footer-column">
-      <h3>SERTIFIKASI</h3>
-      <p>0812-2000-9203</p>
-      <p><a href="mailto:admin@safecomitrasolution.com">admin@safecomitrasolution.com</a></p>
+    <div class="footer-bottom">
+      © 2025. All rights reserved.
     </div>
-    <div class="footer-column">
-      <h3>KONSULTASI</h3>
-      <p>Masukkan alamat email Anda</p>
-      <input type="email" placeholder="Contoh: nama@gmail.com" class="email-input" />
-      <button class="submit-btn">Kirim Permintaan Pelatihan</button>
-    </div>
-  </div>
-  <div class="footer-bottom">© 2025. All rights reserved.</div>
-</footer>
+  </footer>
 
-<script>
-  const kode = new URLSearchParams(window.location.search).get('kode');
-  const hasil = document.getElementById('hasil');
+  <script>
+    const kode = new URLSearchParams(window.location.search).get('kode');
+    const hasil = document.getElementById('hasil');
 
-  if (!kode) {
-    hasil.innerHTML = '❌ <span class="error">Kode tidak diberikan.</span><br>Gunakan URL seperti <b>?kode=1VSMS2025F001</b>';
-  } else {
-    fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vToiXzfx8AI4KHnuKNSSvMGqa5yzLPy2EYo27qkiePBRgSmHS-L4KXpfj0coMt6U5Jtz7X8sOvJhcSj/pub?output=csv')
-      .then(response => response.text())
-      .then(csv => {
-        const rows = csv.split('\n').slice(1);
-        const data = rows.map(row => row.split(','));
-        const cocok = data.find(r => r[0].trim() === kode);
-        if (cocok) {
-          hasil.innerHTML = \`
-            ✅ Sertifikat ditemukan!<br><br><br>
-            <b>Nama:</b> \${cocok[1]}<br><br>
-            <b>Kode:</b> \${cocok[2]}<br><br>
-            <b>Pelatihan:</b> \${cocok[3]}<br><br>
-            <b>Tanggal:</b> \${cocok[4]}<br><br>
-            <a href="\${cocok[5]}" target="_blank">🔗 Lihat Sertifikat</a>
-          \`;
-        } else {
-          hasil.innerHTML = '❌ <span class="error">Sertifikat tidak ditemukan.</span><br>Periksa kode Anda.';
-        }
-      })
-      .catch(error => {
-        hasil.innerHTML = '❌ <span class="error">Gagal mengambil data.</span>';
-        console.error(error);
-      });
-  }
-</script>
+    if (!kode) {
+      hasil.innerHTML = '❌ <span class="error">Kode tidak diberikan.</span><br>Gunakan URL seperti <b>?kode=1VSMS2025F001</b>';
+    } else {
+      fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vToiXzfx8AI4KHnuKNSSvMGqa5yzLPy2EYo27qkiePBRgSmHS-L4KXpfj0coMt6U5Jtz7X8sOvJhcSj/pub?output=csv')
+        .then(response => response.text())
+        .then(csv => {
+          const rows = csv.split('\n').slice(1);
+          const data = rows.map(row => row.split(','));
+
+          const cocok = data.find(r => r[0].trim() === kode);
+          if (cocok) {
+            hasil.innerHTML = `
+              ✅ Sertifikat ditemukan!<br><br><br>
+              <b>Nama:</b> ${cocok[1]}<br><br>
+              <b>Kode:</b> ${cocok[2]}<br><br>
+              <b>Pelatihan:</b> ${cocok[3]}<br><br>
+              <b>Tanggal:</b> ${cocok[4]}<br><br>
+              <a href="${cocok[5]}" target="_blank">🔗 Lihat Sertifikat</a>
+            `;
+          } else {
+            hasil.innerHTML = '❌ <span class="error">Sertifikat tidak ditemukan.</span><br>Periksa kode Anda.';
+          }
+        })
+        .catch(error => {
+          hasil.innerHTML = '❌ <span class="error">Gagal mengambil data.</span>';
+          console.error(error);
+        });
+    }
+  </script>
 
 </body>
 </html>
