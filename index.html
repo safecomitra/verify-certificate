@@ -1,0 +1,49 @@
+<!DOCTYPE html> 
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Verifikasi Sertifikat</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f2f2f2; text-align: center; padding: 50px; }
+    .result { background: white; padding: 20px; border-radius: 8px; display: inline-block; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .error { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div id="hasil" class="result">🔄 Sedang memuat data...</div>
+
+  <script>
+    const kode = new URLSearchParams(window.location.search).get('kode');
+    const hasil = document.getElementById('hasil');
+
+    if (!kode) {
+      hasil.innerHTML = '❌ <span class="error">Kode tidak diberikan.</span><br>Gunakan URL seperti <b>?kode=1VSMS2025F001</b>';
+    } else {
+      fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vToiXzfx8AI4KHnuKNSSvMGqa5yzLPy2EYo27qkiePBRgSmHS-L4KXpfj0coMt6U5Jtz7X8sOvJhcSj/pub?output=csv')
+        .then(response => response.text())
+        .then(csv => {
+          const rows = csv.split('\n').slice(1); // buang header
+          const data = rows.map(row => row.split(','));
+
+          const cocok = data.find(r => r[0].trim() === kode);
+          if (cocok) {
+            hasil.innerHTML = `
+              ✅ Sertifikat ditemukan!<br><br><br>
+              <b>Nama:</b> ${cocok[1]}<br><br>
+              <b>Kode:</b> ${cocok[2]}<br><br>
+              <b>Pelatihan:</b> ${cocok[3]}<br><br>
+              <b>Tanggal:</b> ${cocok[4]}<br><br>
+              <a href="${cocok[5]}" target="_blank">🔗 Lihat Sertifikat</a>
+            `;
+          } else {
+            hasil.innerHTML = '❌ <span class="error">Sertifikat tidak ditemukan.</span><br>Periksa kode Anda.';
+          }
+        })
+        .catch(error => {
+          hasil.innerHTML = '❌ <span class="error">Gagal mengambil data.</span>';
+          console.error(error);
+        });
+    }
+  </script>
+</body>
+</html>
