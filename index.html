@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -30,16 +29,6 @@
     .error {
       color: red;
       font-weight: bold;
-    }
-
-    .success {
-      font-size: 1.4em;
-      font-weight: bold;
-      color: green;
-    }
-
-    .detail {
-      font-size: 1.1em;
     }
 
     .call-section {
@@ -97,6 +86,7 @@
       border-radius: 8px;
     }
 
+    /* Footer */
     .footer {
       background-color: #1d3557;
       color: white;
@@ -261,16 +251,14 @@
 
           const cocok = data.find(r => r[0].trim() === kode);
           if (cocok) {
-            hasil.innerHTML = \`
-              <div class="success">✅ Sertifikat ditemukan!</div><br><br>
-              <div class="detail">
-                <b>Nama:</b> \${cocok[1]}<br><br>
-                <b>Kode:</b> \${cocok[2]}<br><br>
-                <b>Pelatihan:</b> \${cocok[3]}<br><br>
-                <b>Tanggal:</b> \${cocok[4]}<br><br>
-                <a href="\${cocok[5]}" target="_blank">🔗 Lihat Sertifikat</a>
-              </div>
-            \`;
+            hasil.innerHTML = `
+              ✅ Sertifikat ditemukan!<br><br><br>
+              <b>Nama:</b> ${cocok[1]}<br><br>
+              <b>Kode:</b> ${cocok[2]}<br><br>
+              <b>Pelatihan:</b> ${cocok[3]}<br><br>
+              <b>Tanggal:</b> ${cocok[4]}<br><br>
+              <a href="${cocok[5]}" target="_blank">🔗 Lihat Sertifikat</a>
+            `;
           } else {
             hasil.innerHTML = '❌ <span class="error">Sertifikat tidak ditemukan.</span><br>Periksa kode Anda.';
           }
